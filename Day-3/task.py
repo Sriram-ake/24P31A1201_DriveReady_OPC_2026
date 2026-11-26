@@ -1,12 +1,10 @@
 """Day 3: Your First AI Agent — LangChain Chain, Memory, tests.csv Evaluation, and create_agent."""
-
 import csv
 import os
 from pathlib import Path
 
 try:
     from google.colab import userdata  # type: ignore
-
     os.environ["GROQ_API_KEY"] = userdata.get("GROQ_API_KEY")
 except Exception:
     pass
@@ -30,7 +28,6 @@ RULES:  Never promise a delivery time or place.
 FORMAT: Under 50 words, friendly, English or Telugu matching the customer."""
 
 llm = ChatGroq(model=MODEL, temperature=0.3)
-
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", SYSTEM),
@@ -38,7 +35,6 @@ prompt = ChatPromptTemplate.from_messages(
         ("human", "{question}"),
     ]
 )
-
 chain = prompt | llm | StrOutputParser()
 history: list[tuple[str, str]] = []
 
@@ -50,7 +46,9 @@ def ask(question: str) -> str:
     return answer
 
 
-DEFAULT_TESTS_PATH = Path(__file__).with_name("tests.csv") if "__file__" in globals() else Path("tests.csv")
+DEFAULT_TESTS_PATH = (
+    Path(__file__).with_name("tests.csv") if "__file__" in globals() else Path("tests.csv")
+)
 
 
 def run_tests(path: str | Path = DEFAULT_TESTS_PATH, target_chain=None) -> float:
@@ -58,22 +56,18 @@ def run_tests(path: str | Path = DEFAULT_TESTS_PATH, target_chain=None) -> float
     active_chain = target_chain or chain
     with open(path, newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-
     passed = 0
     for row in rows:
         answer = active_chain.invoke({"history": [], "question": row["question"]})
         ok = row["must_include"].lower() in answer.lower()
         passed += int(ok)
         print("PASS" if ok else "FAIL", "|", row["question"], "->", answer[:80])
-
     rate = passed / len(rows) if rows else 0.0
     print(f"\n{passed}/{len(rows)} passed ({rate:.0%})")
     return rate
 
 
 # --- Day 4 Prep: Two Python functions with type hints and docstrings ---
-
-
 def get_price(item: str, qty: int = 1) -> str:
     """Return the total price in rupees for qty of a bakery menu item."""
     key = item.lower().strip()

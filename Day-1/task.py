@@ -1,10 +1,8 @@
 """Day 1: How LLMs work & First API Call using Groq (OpenAI-compatible & LangChain)."""
-
 import os
 
 try:
     from google.colab import userdata  # type: ignore
-
     os.environ["GROQ_API_KEY"] = userdata.get("GROQ_API_KEY")
 except Exception:
     pass
@@ -17,7 +15,6 @@ client = OpenAI(
 )
 
 MODEL = "openai/gpt-oss-120b"
-
 SYSTEM = """ROLE:   You are the assistant for Sweet Crumbs Home Bakery.
 FACTS:  We bake to order. Orders need 24 hours' notice. All cakes have eggless versions.
         Plum cake Rs 500. Chocolate cake Rs 650. Cupcake Rs 80.

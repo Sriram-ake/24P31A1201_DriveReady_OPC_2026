@@ -1,12 +1,10 @@
 """Day 2: Prompts, JSON, Memory by Hand, and Python Basics for Agents."""
-
 import functools
 import json
 import os
 
 try:
     from google.colab import userdata  # type: ignore
-
     os.environ["GROQ_API_KEY"] = userdata.get("GROQ_API_KEY")
 except Exception:
     pass
@@ -20,7 +18,6 @@ client = OpenAI(
 
 MODEL = "openai/gpt-oss-120b"
 MENU = {"plum cake": 500, "chocolate cake": 650, "cupcake": 80}
-
 SYSTEM = f"""ROLE:   You are the friendly assistant for Sweet Crumbs Home Bakery.
 FACTS:  Menu with prices in rupees: {json.dumps(MENU)}
         Orders need 24 hours' notice. All cakes have eggless versions.
@@ -31,13 +28,11 @@ FORMAT: Under 50 words, friendly, English or Telugu matching the customer."""
 
 def log_call(func):
     """Decorator that logs function calls and return values."""
-
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         print(f"   [log] {func.__name__}{args} -> {result!r}")
         return result
-
     return wrapper
 
 

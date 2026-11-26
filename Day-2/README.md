@@ -1,7 +1,7 @@
 # Day 2 — Prompts, Memory & Python Basics for Agents
 
 ## Overview
-Upgraded the Sweet Crumbs assistant into a multi-turn chatbot with structured prompt design (`Role · Facts · Rules · Format`), conversation history trimming, and safe error handling.
+Upgraded the Sweet Crumbs assistant into a multi-turn chatbot with structured prompt design (Role · Facts · Rules · Format), conversation history trimming, and safe error handling.
 
 ## Topics Covered
 - Message roles: `system`, `user`, `assistant`
