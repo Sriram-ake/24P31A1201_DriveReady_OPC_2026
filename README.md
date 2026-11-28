@@ -2,7 +2,7 @@
 
 **Drive Ready – AI Agents | One Person Company (OPC) Initiative**  
 Department of Technical Training, Aditya University (23 Nov – 5 Dec 2026)  
-GitHub Repository: [https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026](https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026)
+GitHub Repository: https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026
 
 ## Repository Structure
 
@@ -33,6 +33,11 @@ GitHub Repository: [https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026
     │   ├── Day-05.ipynb
     │   ├── task.py
     │   └── README.md
+    ├── Day-6/
+    │   ├── .env.example
+    │   ├── Day-06.ipynb
+    │   ├── task.py
+    │   └── README.md
     ├── .gitignore
     └── README.md
 
@@ -40,7 +45,7 @@ GitHub Repository: [https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026
 
 1. Clone the repository:
 
-    git clone [https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026.git](https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026.git)
+    git clone https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026.git
     cd 24P31A1201_DriveReady_OPC_2026
 
 2. In Google Colab, add `GROQ_API_KEY` to **Colab Secrets** and enable **Notebook access**.  
@@ -53,3 +58,4 @@ GitHub Repository: [https://github.com/Sriram-ake/24P31A1201_DriveReady_OPC_2026
 - [Day 3 — Your First AI Agent & LangChain](./Day-3/README.md)
 - [Day 4 — Tool-Calling Agents, Structured Outputs & Google Sheets Logging](./Day-4/README.md)
 - [Day 5 — Conversation Memory & RAG (ChromaDB & PDF Retrieval)](./Day-5/README.md)
+- [Day 6 — Workflows, Planning & LangGraph (Multi-Agent Router)](./Day-6/README.md)
